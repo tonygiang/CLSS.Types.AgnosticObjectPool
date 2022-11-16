@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>netstandard1.0;netstandard2.0</TargetFrameworks>
@@ -10,6 +10,11 @@
     <RepositoryUrl>https://github.com/tonygiang/CLSS.Types.AgnosticObjectPool</RepositoryUrl>
     <PackageTags>CLSS</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Version>1.0.1</Version>
+    <PackageReleaseNotes>
+      - Improved comment.
+      - Improved README description.
+    </PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

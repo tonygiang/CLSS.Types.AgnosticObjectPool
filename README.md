@@ -87,9 +87,9 @@ for (int i = 0; i < 8; ++i) { var ap = AudioPlayerBuffer[i]; }
 
 #### Advanced Usage Notes
 
-`TakeOne` method has a complexity of O(1) in the best-case scenario and O(n) in the worst case scenario. In order to hit the best-case scenario as frequently as possible. It keeps track of the next index to check via a field named `NextCheckingIndex`. This field is automatically set by `AgnosticObjectPool`. It increments everytime you take an available object from the pool and automatically loops around when it reaches the end of the pool. `NextCheckingIndex` is made public should you need to manipulate it directly, even though it is not recommended to do so.
+`TakeOne` method has a complexity of O(1) in the best-case scenario and O(n) in the worst case scenario. In order to hit the best-case scenario as frequently as possible, it keeps track of the next index to check via a field named `NextCheckingIndex`. This field is automatically set by `AgnosticObjectPool`. It increments everytime you take an available object from the pool and automatically loops around when it reaches the end of the pool. `NextCheckingIndex` is made public should you need to manipulate it directly, even though it is not recommended to do so.
 
-You may want to manually and pre-emptively grow the object pool to cut down on heavy heap allocations during hot code paths by calling the `Grow` and `GrowStep` methods. `Grow` takes in the total number of objects to create and `GrowStep` takes in the number of steps to grow. The number of objects that will be created is defined by the public field `GrowNumberPerStep`.
+You may want to manually and pre-emptively grow the object pool to cut down on heavy heap allocations during hot code paths by calling the `Grow` and `GrowStep` methods. `Grow` takes in the total number of objects to create and `GrowStep` takes in the number of steps to grow. The number of objects that will be created per step is defined by the public field `GrowNumberPerStep`.
 
 The list of `AgnosticObjectPool`'s instances is also publicly exposed via the field `Instances`. You can trim down the pool by manipulating this list directly, but be mindful of `NextCheckingIndex` if you do this. It may have an out-of-range value the next time you take an object after trimming down the pool.
 

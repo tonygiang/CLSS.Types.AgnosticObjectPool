@@ -84,7 +84,7 @@ namespace CLSS
     /// Grows the pool by the specified number of steps. Each step grows the
     /// pool by the number defined by <see cref="GrowNumberPerStep"/>
     /// </summary>
-    /// <param name="number">The number of steps to grow the pool.</param>
+    /// <param name="stepNumber">The number of steps to grow the pool.</param>
     /// <returns>The object pool.</returns>
     public virtual AgnosticObjectPool<T> GrowStep(int stepNumber)
     { return Grow(stepNumber * GrowNumberPerStep); }
