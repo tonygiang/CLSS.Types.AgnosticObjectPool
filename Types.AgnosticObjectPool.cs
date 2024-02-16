@@ -177,8 +177,9 @@ namespace CLSS
         if (AvailableInstancePredicate(instance)) return instance;
       }
       GrowStep(1);
-      NextCheckingIndex = Instances.Count - GrowNumberPerStep + 1;
-      return Instances[NextCheckingIndex - 1];
+      NextCheckingIndex = (Instances.Count - GrowNumberPerStep + 1)
+        % Instances.Count;
+      return Instances[Instances.Count - GrowNumberPerStep];
     }
   }
 }
